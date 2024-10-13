@@ -1,0 +1,2 @@
+# Exercises
+ Various algorithm exercises.
