@@ -27,8 +27,12 @@ while sel != 'n':
     if sel == 'a':
         frase = str(input('Digite a frase: ')).strip()
         dado.append(frase)
-        with open('arquivo.json', 'w') as file:
-            file.write(json.dumps(dado))
+        conf = ''
+        while conf != 's' and conf != 'n':
+            conf = str(input('Confirmar? (s/n) ')).strip().lower()
+        if conf == 's':
+            with open('arquivo.json', 'w') as file:
+                file.write(json.dumps(dado))
 
     elif sel == 's':
         item = choice(dado)
