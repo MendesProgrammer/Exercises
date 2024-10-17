@@ -27,6 +27,8 @@ while sel != 'n':
     if sel == 'a':
         frase = str(input('Digite a frase: ')).strip()
         dado.append(frase)
+        with open('arquivo.json', 'w') as file:
+            file.write(json.dumps(dado))
 
     elif sel == 's':
         item = choice(dado)
