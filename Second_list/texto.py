@@ -45,8 +45,8 @@ while True:
             num = 0
             while True:
 
-                print(f'Site número {num}: {dado['site'][num]}')
-                sel = str(input('Selecione um comando < ok > sair')).strip()
+                print(f'Site número {num}: {dado['site'][num][0]}')
+                sel = str(input('Selecione um comando (< ok > sair) ')).strip()
 
                 if sel == '>':
                     if num + 1 == len(dado['site']):
@@ -63,7 +63,7 @@ while True:
                 elif sel.lower() == 'ok':
                     conf = str(input('Entrar, Confirmar? (s/n) ')).strip()
                     if conf.lower() == 's':
-                        link = dado[num][0]
+                        link = dado['site'][num][0]
 
                         req = requests.get(link)
 
@@ -101,18 +101,18 @@ while True:
         if len(dado['site']) > 0:
             num = 0
             while True:
-                print(f'Site número {num}: {dado['site'][num]}')
-                sel = str(input('Selecione um comando < ok > sair')).strip()
+                print(f'Site número {num}: {dado['site'][num][0]}')
+                sel = str(input('Selecione um comando (< ok > sair) ')).strip()
 
                 if sel == '>':
-                    if num + 1 == len(dado):
+                    if num + 1 == len(dado['site']):
                         num = 0
                     else:
                         num += 1
 
                 elif sel == '<':
                     if num - 1 < 0:
-                        num = len(dado) - 1
+                        num = len(dado['site']) - 1
                     else:
                         num -= 1
 
