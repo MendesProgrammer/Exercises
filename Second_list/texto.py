@@ -45,7 +45,7 @@ while True:
             num = 0
             while True:
 
-                print(f'Site número {num}: {dado['site'][num][0]}')
+                print(f'Site número {num}: {dado["site"][num][0]}')
                 sel = str(input('Selecione um comando (< ok > sair) ')).strip()
 
                 if sel == '>':
@@ -79,11 +79,19 @@ while True:
 
                         inicio = dado['site'][num][1]
 
-                        os.system('cls') or None
+                        try:
+                            os.system('cls') or None
+                        except:
+                            os.system('clear') or None
+
                         for c in range(inicio, len(titulo)):
                             print(f'{titulo[c]:^30}')
                             sleep(0.12)
-                            os.system('cls') or None
+                            try:
+                                os.system('cls') or None
+                            except:
+                                os.system('clear') or None
+                                
                             dado['site'][num][1] = c
                             with open(arquivo, 'w') as file:
                                 file.write(json.dumps(dado))
@@ -101,7 +109,7 @@ while True:
         if len(dado['site']) > 0:
             num = 0
             while True:
-                print(f'Site número {num}: {dado['site'][num][0]}')
+                print(f'Site número {num}: {dado["site"][num][0]}')
                 sel = str(input('Selecione um comando (< ok > sair) ')).strip()
 
                 if sel == '>':
@@ -133,7 +141,7 @@ while True:
 
     elif op == '4':
         while True:
-            conf = str(input(f'Tempo atual {dado['tempo']}, modificar? (s/n) ')).strip()
+            conf = str(input(f'Tempo atual {dado["tempo"]}, modificar? (s/n) ')).strip()
             if conf.lower() == 's':
                 while True:
                     temp = float(input('Digite o tempo: '))
